@@ -11,7 +11,8 @@ export default function Page() {
   const registroData = () => {
     let err = [];
 
-    axios.post("http://localhost:3000/register", {
+    // SE FOR RODAR NO CELULAR COM EXPO, TROQUE 'localhost' PELO SEU IP
+    axios.post("http://localhost:3001/register", {
       nome: nome,
       email: email,
       senha: password,
@@ -35,7 +36,7 @@ export default function Page() {
       <KeyboardAvoidingView style={{flex: 1, width: '100%'}} behavior={Platform.OS === 'ios' ? 'height' : 'position'}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.main}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Criar Conta</Text>
             <TextInput style={[styles.input, styles.nameArea]} name={'nameInput'} placeholder={'Nome'} onChangeText={(text) => setNome(text)}/>
             <TextInput style={[styles.input, styles.emailArea]} name={'emailInput'} placeholder={'Email'} onChangeText={(text) => setEmail(text)}/>
             <TextInput style={[styles.input, styles.emailArea]} name={'passwordInput'} placeholder={'Senha'}  onChangeText={(text) => setPassword(text)} secureTextEntry/>
