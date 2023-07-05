@@ -27,13 +27,17 @@ app.post('/register', (req, res) => {
     const {email} = req.body;        // NO CÓDIGO AO LADO. A NOME DA VAR DENTRO DAS CHAVES DEVE SER O MESMO
     const {senha} = req.body;        // QUE ESTÁ SENDO IMPLEMETADO DENTRO DO MÉTODO NO FRONT. SENÃO A CHAMADA
                                      // DEVE SER 'const nome = req.body.nome'
-    console.log(nome);
 
-    let SQL = "INSERT INTO testecrud.usrdata(nome, email, senha) VALUES (? , ? , ?)";
+    let SQL = "INSERT INTO usrdata(nome, email, senha) VALUES (? , ? , ?)";
 
     db.query(SQL, [nome, email, senha], (err, result) => {
-        if(err) {console.log(err);}
-        else {console.log(result);}
+        if(err) {
+            console.log(err);
+            res.json({message: 'Erro: Tente novamente mais tarde!'});
+        } else {
+            console.log(result);
+            res.json({message: 'Conta criada com sucesso!'});
+        }
     });
 });
 
