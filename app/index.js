@@ -18,16 +18,10 @@ export default function Page() {
       senha: password,
     }).then(function (response){
       console.log(response);
-      err = true;
+      alert(response.data.message);
     }).catch(function (error){
       console.log(error);
     });
-
-    if(err == true){
-      alert('erro');
-    } else {
-      alert('Cadastro realizado com sucesso!');
-    }
 
   }
 
